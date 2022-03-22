@@ -13,7 +13,7 @@ def ler_arquivos(pasta):
 		if os.path.isfile(f):
 			with codecs.open(f) as fileobj:
 				ofx = OfxParser.parse(fileobj)
-				arquivos.append(ofx)
+				arquivos.append({'nome': filename, 'dados': ofx})
 
 	return arquivos
 
@@ -31,14 +31,14 @@ def gerar_planilha(obj):
 	return resultado
 
 
-def escrever_planilha(dados, pasta):
+def escrever_planilha(dados, pasta, nome):
 
-	planilha = xlsxwriter.Workbook(f'{pasta}/saida.xlsx')
+	planilha = xlsxwriter.Workbook(f'{pasta}/{nome}_saida.xlsx')
 	aba = planilha.add_worksheet()
 
-	for linha in range(len(resultado)):
-		for coluna in range(len(resultado[linha])):
-			valor = resultado[linha][coluna][0]
+	for linha in range(len(dados)):
+		for coluna in range(len(dados[linha])):
+			valor = dados[linha][coluna][0]
 			aba.write(linha, coluna, valor)
 
 	planilha.close()
@@ -47,8 +47,8 @@ def escrever_planilha(dados, pasta):
 def main():
 	arquivos = ler_arquivos('entrada')
 	for arquivo in arquivos:
-		planilha = gerar_planilha(arquivo)
-		escrever_planilha(planilha, 'saída')
+		planilha = gerar_planilha(arquivo['dados'])
+		escrever_planilha(planilha, 'saída',arquivo['nome'])
 
 main()
 #with open('saída.csv', 'a') as out:
