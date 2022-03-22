@@ -47,8 +47,8 @@ def escrever_planilha(dados, pasta):
 def main():
 	arquivos = ler_arquivos('entrada')
 	for arquivo in arquivos:
-		planilha = gerar_planilha(arquivo, 'saída')
-		escrever_planilha(planilha)
+		planilha = gerar_planilha(arquivo)
+		escrever_planilha(planilha, 'saída')
 
 main()
 #with open('saída.csv', 'a') as out:
