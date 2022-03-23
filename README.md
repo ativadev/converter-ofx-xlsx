@@ -11,7 +11,7 @@ Script desenvolvido pelo departamento de TI ([@jpricardo](https://www.github.com
 - Caso não esteja confortável em fazer a instalação por conta própria, **COMUNIQUE AO TI**
 - Procure, em sua pasta TEMP (`C:\TEMP`), a pasta `CONVERSOR OFX`
 - Copie a pasta para sua área de trabalho
-- **PRONTO!***
+- **PRONTO!**
 
 ### Desenvolvedor
 
