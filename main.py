@@ -3,6 +3,7 @@ from ofxparse import OfxParser
 import xlsxwriter
 import codecs
 import os
+import time
 
 def ler_arquivos(pasta):
 
@@ -42,13 +43,19 @@ def escrever_planilha(dados, pasta, nome):
 			aba.write(linha, coluna, valor)
 
 	planilha.close()
+	return True
 
 
 def main():
 	arquivos = ler_arquivos('entrada')
+	gerados = []
 	for arquivo in arquivos:
 		planilha = gerar_planilha(arquivo['dados'])
-		escrever_planilha(planilha, 'saída',arquivo['nome'])
+		gerados.append({ arquivo['nome']: escrever_planilha(planilha, 'saída',arquivo['nome'])})
+
+	print(f'Foram gerados {len(gerados)} arquivos!')
+	time.sleep(5)
+
 
 main()
 #with open('saída.csv', 'a') as out:
