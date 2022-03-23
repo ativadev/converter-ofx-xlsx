@@ -13,7 +13,7 @@ Script desenvolvido pelo departamento de TI ([@jpricardo](https://www.github.com
 ## Como funciona?
 
 - Insira os arquivos *.ofx* dentro da pasta *\"entrada\"*
-- Rode o arquivo *\"main.py\"*
+- Rode o arquivo *\"src/main.py\"*, pelo atalho *\"converter\"*
 - Verifique a pasta *\"saída\"*
 - **PRONTO**
 
