@@ -27,13 +27,13 @@ def gerar_planilha(obj):
 	account = obj.account
 	statement = account.statement
 	transactions = statement.transactions
-	resultado = [[['DATA'], ['MEMO'], ['TIPO'], ['SAÍDA'], ['ENTRADA']]]
+	resultado = [[['DATA'], ['DESCRIÇÃO'], ['DOC'], ['SAÍDA'], ['ENTRADA']]]
 
 	for transaction in transactions:
 		if transaction.amount < 0:
-			resultado.append([[transaction.date], [transaction.memo], [transaction.type], [abs(transaction.amount)], ['']])
+			resultado.append([[transaction.date], [''], [transaction.memo], [abs(transaction.amount)], ['']])
 		else:
-			resultado.append([[transaction.date], [transaction.memo], [transaction.type], [''], [transaction.amount]])
+			resultado.append([[transaction.date], [''], [transaction.memo], [''], [transaction.amount]])
 	return resultado
 
 
@@ -52,8 +52,9 @@ def escrever_planilha(dados, pasta, nome):
 
 
 def main():
-	time.sleep(1)
+	time.sleep(0.5)
 	print('[CONVERSOR] Iniciando conversão...')
+	time.sleep(0.5)
 	arquivos = ler_arquivos('../entrada')
 	gerados = []
 	for arquivo in arquivos:
