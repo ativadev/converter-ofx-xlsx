@@ -60,8 +60,12 @@ def main():
 	for arquivo in arquivos:
 		nome = arquivo['nome']
 		print(f'[CONVERSOR] Convertendo arquivo {nome}...')
-		planilha = gerar_planilha(arquivo['dados'])
-		gerados.append({ nome: escrever_planilha(planilha, '../saída',arquivo['nome'])})
+		try:
+			planilha = gerar_planilha(arquivo['dados'])
+			sucesso = escrever_planilha(planilha, '../saída',arquivo['nome'])
+			gerados.append({ nome: sucesso})
+		except:
+			print(f'[ERRO] Erro na conversão!')
 
 	print(f'[SUCESSO] Foram convertidos {len(gerados)} arquivos!')
 	print('[SUCESSO] Verifique a pasta SAÍDA!')
