@@ -12,9 +12,12 @@ def ler_arquivos(pasta):
 	for filename in os.listdir(pasta):
 		f = os.path.join(pasta, filename)
 		if os.path.isfile(f):
-			with codecs.open(f) as fileobj:
-				ofx = OfxParser.parse(fileobj)
-				arquivos.append({'nome': filename, 'dados': ofx})
+			try:
+				with codecs.open(f) as fileobj:
+					ofx = OfxParser.parse(fileobj)
+					arquivos.append({'nome': filename, 'dados': ofx})
+			except:
+				print(f'[ERRO] Arquivo inválido >> {filename}')
 
 	return arquivos
 
@@ -36,7 +39,7 @@ def gerar_planilha(obj):
 
 def escrever_planilha(dados, pasta, nome):
 
-	planilha = xlsxwriter.Workbook(f'{pasta}/{nome}_saida.xlsx')
+	planilha = xlsxwriter.Workbook(f'{pasta}/{nome[:-4]}_saida.xlsx')
 	aba = planilha.add_worksheet()
 
 	for linha in range(len(dados)):
