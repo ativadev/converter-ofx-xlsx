@@ -2,7 +2,7 @@
 
 ## O que é?
 
-Script desenvolvido pelo departamento de TI ([@jpricardo](github.com/jpricardo)) a fim de facilitar a conversão de relatórios bancários (exportados no formato *.ofx*) para o formato *.xlsx*, facilitando assim o lançamento no sistema.
+Script desenvolvido pelo departamento de TI ([@jpricardo](https://www.github.com/jpricardo)) a fim de facilitar a conversão de relatórios bancários (exportados no formato *.ofx*) para o formato *.xlsx*, facilitando assim o lançamento no sistema.
 
 ## Como instalar?
 
