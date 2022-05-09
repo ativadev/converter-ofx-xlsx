@@ -30,6 +30,9 @@ def handle_uploaded_file(f):
 	new_doc = InMemoryUploadedFile(new_io, "FileField", output_name, "application/vnd.ms-excel", sys.getsizeof(new_io), None)
 	return new_doc
 
+def get_output_from_input():
+	pass
+
 
 def get_data_from_ofx(ofx_file):
 	obj = OfxParser.parse(ofx_file)

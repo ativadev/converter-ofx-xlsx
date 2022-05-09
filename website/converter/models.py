@@ -8,7 +8,7 @@ class Upload(models.Model):
 	file_name = models.CharField(max_length=255, blank=True)
 
 	def __str__(self):
-		return self.document
+		return self.file_name
 
 
 class Output(models.Model):
@@ -16,3 +16,6 @@ class Output(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	original_file = models.ForeignKey(Upload, on_delete=models.CASCADE)
 	file_name = models.CharField(max_length=255, blank=True)
+
+	def __str__(self):
+		return self.file_name
