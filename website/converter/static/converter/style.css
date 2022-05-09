@@ -1,0 +1,6 @@
+body {
+}
+
+div[id="content"] {
+  padding: calc(10vh) calc(5vw);
+}

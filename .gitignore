@@ -1,2 +1,6 @@
 *.ofx
 *.xlsx
+*.sqlite3
+
+__pycache__
+media
