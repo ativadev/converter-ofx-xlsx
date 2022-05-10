@@ -14,7 +14,7 @@
   </head>
   <body>
     {% if file %}
-    <a href="{% url 'converter:download' file.id %}">{{file.file_name}}</a>
+    <p>{{file.document}}</p>
     {% else %}
     <p>Arquivo não encontrado!</p>
     {% endif %}

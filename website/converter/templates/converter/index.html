@@ -35,7 +35,7 @@
       {% if latest_uploads %}
       <ul>
         {% for file in latest_uploads %}
-        <li>{{file.document}}</li>
+        <li>{{file.uploaded_at}} - {{file.file_name}}</li>
         {% endfor %}
       </ul>
       {% else %}
