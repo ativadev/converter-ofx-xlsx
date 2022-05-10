@@ -32,11 +32,6 @@ def index(request):
 	}
 	return render(request, 'converter/index.html', context)
 
-def output(request, file_id):
-	file = get_object_or_404(Upload, pk=file_id)
-	return render(request, 'converter/result.html', { 'file': file })
-
-
 def download(request, file_id):
 	file = get_object_or_404(Output, pk=file_id)
 	relative_path = f'{file.document}'
@@ -47,12 +42,3 @@ def download(request, file_id):
 			response['Content-Disposition'] = 'inline; filename=' + path.basename(file_path)
 			return response
 	return render(request, 'converter/result.html', { 'file': file })
-
-def upload(request):
-	if request.method == 'POST':
-		form = UploadFileForm(request.POST, request.FILES)
-		if form.is_valid():
-			return HttpResponseRedirect('/resultado/1')
-	else:
-		form = UploadFileForm()
-	return HttpResponse('Foi!')

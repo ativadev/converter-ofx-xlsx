@@ -22,17 +22,15 @@ def handle_uploaded_file(f):
 	total = bytes()
 	for chunk in f.chunks():
 		total += chunk
-
 	file_io = io.BytesIO(total)
-	data = get_data_from_ofx(file_io)
-	new_io = create_sheet_from_data(data)
+	new_io = get_output_from_input(file_io)
 	output_name = f'{f.name.split(".")[0]}_OUTPUT.xls'
-	new_doc = InMemoryUploadedFile(new_io, "FileField", output_name, "application/vnd.ms-excel", sys.getsizeof(new_io), None)
-	return new_doc
+	return InMemoryUploadedFile(new_io, "FileField", output_name, "application/vnd.ms-excel", sys.getsizeof(new_io), None)
 
-def get_output_from_input():
-	pass
-
+def get_output_from_input(file):
+	data = get_data_from_ofx(file)
+	new_io = create_sheet_from_data(data)
+	return new_io
 
 def get_data_from_ofx(ofx_file):
 	obj = OfxParser.parse(ofx_file)
@@ -47,8 +45,6 @@ def get_data_from_ofx(ofx_file):
 			resultado.append([[transaction.date], [''], [transaction.memo], [abs(transaction.amount)], ['']])
 		else:
 			resultado.append([[transaction.date], [''], [transaction.memo], [''], [transaction.amount]])
-
-
 
 	return resultado
 
