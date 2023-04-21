@@ -6,6 +6,6 @@ lxml==4.9.1
 ofxparse==0.21
 six==1.16.0
 soupsieve==2.3.2.post1
-sqlparse==0.4.2
+sqlparse==0.4.4
 tzdata==2022.1
 XlsxWriter==3.0.3
